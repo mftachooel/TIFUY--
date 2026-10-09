@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latifah Aulia Zalianty 🌿 - Somewhere in this little universe</title>
+    <meta name="description" content="A magical world made just for you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cinematic Opening Screen -->
+    <div id="opening-screen" class="opening-screen">
+        <div class="particles"></div>
+        <div class="opening-content">
+            <p class="opening-subtitle fade-in" style="animation-delay: 1s;">Somewhere in this little universe...</p>
+            <h1 class="opening-title fade-in-up" style="animation-delay: 2.5s;">Latifah Aulia Zalianty</h1>
+            <p class="opening-message fade-in" style="animation-delay: 4s;">There's a little world made just for you.</p>
+            <div id="start-button" class="start-interaction fade-in" style="animation-delay: 6s;">
+                <span>Touch the light to begin ✨</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+        
+        <!-- Global God Rays Overlay (stays fixed or moves slightly) -->
+        <div class="god-rays"></div>
+        <!-- Global Fireflies Overlay -->
+        <div class="global-fireflies" id="fireflies-container"></div>
+
+        <!-- Scene 1: The Meadow -->
+        <section id="scene-meadow" class="scene">
+            <div class="parallax-bg layer-bg"></div>
+            <div class="parallax-mg layer-mid"></div>
+            <div class="parallax-fg layer-front">
+                <div class="grass-container">
+                    <!-- SVG Grass added via CSS/JS -->
+                </div>
+            </div>
+            <div class="scene-content">
+                <h1 class="elegant-title">Latifah Aulia Zalianty</h1>
+                <p class="elegant-subtitle">Welcome to your forest</p>
+                <div class="welcome-note">
+                    <span class="note-line"></span>
+                    <p>A little place made of warm light, quiet dreams, and all the things that make you <em>you</em>.</p>
+                    <span class="note-line"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 2: A Little Universe (Dinosaur Area) -->
+        <section id="scene-universe" class="scene">
+            <div class="scene-content text-left">
+                <h2>A Little Universe</h2>
+                <p>Hidden in the tall grass, a tiny friend awaits.</p>
+            </div>
+            <div class="interactive-area">
+                <div class="dino-container" id="dino-interactive">
+                    <svg class="dino-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Yellow Spikes -->
+                        <path d="M 35,55 L 42,40 L 49,55 Z" fill="#ffcf54" />
+                        <path d="M 47,55 L 54,40 L 61,55 Z" fill="#ffcf54" />
+                        <path d="M 54,40 L 60,25 L 66,40 Z" fill="#ffcf54" />
+
+                        <!-- Darker Back Legs -->
+                        <rect x="38" y="70" width="12" height="22" rx="6" fill="#7ba33d" />
+                        <rect x="62" y="70" width="12" height="22" rx="6" fill="#7ba33d" />
+
+                        <!-- Tail -->
+                        <path d="M 40,55 C 15,55 5,65 5,75 C 15,82 25,82 40,82 Z" fill="#a4d15c" />
+
+                        <!-- Main Body -->
+                        <rect x="30" y="50" width="45" height="35" rx="15" fill="#a4d15c" />
+
+                        <!-- Neck -->
+                        <rect x="55" y="25" width="20" height="40" fill="#a4d15c" />
+
+                        <!-- Head Base -->
+                        <circle cx="65" cy="25" r="15" fill="#a4d15c" />
+
+                        <!-- Snout -->
+                        <rect x="65" y="15" width="25" height="20" rx="10" fill="#a4d15c" />
+
+                        <!-- Lighter Front Legs -->
+                        <rect x="28" y="75" width="12" height="22" rx="6" fill="#a4d15c" />
+                        <rect x="52" y="75" width="12" height="22" rx="6" fill="#a4d15c" />
+
+                        <!-- Eye -->
+                        <circle cx="75" cy="20" r="3.5" fill="#111" />
+                        <circle cx="76.5" cy="18.5" r="1.5" fill="#fff" /> <!-- Eye shine -->
+
+                        <!-- Cheek Blush -->
+                        <circle cx="82" cy="26" r="4" fill="#ff7777" opacity="0.8" />
+                        
+                        <!-- Cute Smile -->
+                        <path d="M 83,20 Q 88,23 83,25" stroke="#111" stroke-width="2" stroke-linecap="round" fill="none" />
+                    </svg>
+                    <div class="dino-reaction">Rawr! 🌿</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 3: A Quiet Picnic (Duck Area) -->
+        <section id="scene-picnic" class="scene">
+            <div class="scene-content text-right">
+                <h2>A Quiet Picnic</h2>
+                <p>A little spot to rest, under the golden leaves.</p>
+            </div>
+            <div class="picnic-area">
+                <!-- Duck SVG -->
+                <div class="duck-container" id="duck-interactive">
+                    <svg class="duck-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Duck Body -->
+                        <path d="M 40,80 Q 20,80 20,60 Q 20,45 35,40 L 45,30 Q 50,20 60,20 L 70,20 Q 85,20 85,35 Q 85,45 75,50 L 80,65 Q 85,80 60,80 Z" fill="#fff9d6" />
+                        <!-- Duck Wing -->
+                        <path d="M 40,65 Q 30,60 40,50 Q 50,55 55,65 Z" fill="#f0e5b1" />
+                        <!-- Duck Beak -->
+                        <path d="M 80,30 Q 95,30 95,35 Q 95,40 80,40 Z" fill="#ffb84d" />
+                        <!-- Duck Eye -->
+                        <circle cx="70" cy="30" r="3.5" fill="#333" />
+                        <!-- Duck Cheek -->
+                        <circle cx="63" cy="36" r="4" fill="#ff9999" opacity="0.6" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 4: November Light (Date of Birth) -->
+        <section id="scene-november" class="scene">
+            <div class="scene-content center-content">
+                <div class="date-container glow-effect">
+                    <span class="day">17</span>
+                    <span class="month">November</span>
+                    <span class="year">2008</span>
+                </div>
+                <div class="falling-leaves-container">
+                    <!-- Leaves generated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 5: The Little Ending -->
+        <section id="scene-ending" class="scene">
+            <div class="scene-content center-content ending-text">
+                <h1 class="elegant-title final-name">Latifuy Aulia Zalianty</h1>
+                <p class="final-wish">May your little world always be filled with wonder.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hidden YouTube player for the background song. Playback starts after the opening interaction. -->
+    <div id="background-music" class="background-music" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
