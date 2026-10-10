@@ -19,6 +19,58 @@ document.addEventListener('DOMContentLoaded', () => {
         musicContainer.appendChild(player);
     }
 
+    const journalSheet = document.querySelector('.journal-sheet');
+    if (journalSheet) {
+        const journalHome = journalSheet.querySelector('#journal-home');
+        const journalPages = [...journalSheet.querySelectorAll('.journal-page')];
+        let lastJournalTrigger = null;
+
+        journalSheet.addEventListener('click', (event) => {
+            const openButton = event.target.closest('[data-journal-target]');
+            const backButton = event.target.closest('[data-journal-back]');
+
+            if (openButton) {
+                const page = journalPages.find((item) => item.dataset.journalPage === openButton.dataset.journalTarget);
+                if (!page || !journalHome) return;
+
+                lastJournalTrigger = openButton;
+                journalHome.hidden = true;
+                journalPages.forEach((item) => {
+                    item.hidden = item !== page;
+                    item.classList.remove('is-entering');
+                });
+
+                requestAnimationFrame(() => {
+                    void page.offsetWidth;
+                    page.classList.add('is-entering');
+                    const pageHeading = page.querySelector('h3');
+                    if (pageHeading) {
+                        pageHeading.setAttribute('tabindex', '-1');
+                        pageHeading.focus({ preventScroll: true });
+                    }
+                    page.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            if (backButton && journalHome) {
+                const currentPage = backButton.closest('.journal-page');
+                if (currentPage) {
+                    currentPage.hidden = true;
+                    currentPage.classList.remove('is-entering');
+                }
+                journalHome.hidden = false;
+                journalHome.classList.remove('is-entering');
+
+                requestAnimationFrame(() => {
+                    void journalHome.offsetWidth;
+                    journalHome.classList.add('is-entering');
+                    if (lastJournalTrigger) lastJournalTrigger.focus({ preventScroll: true });
+                    journalSheet.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+        });
+    }
+
     startButton.addEventListener('click', (e) => {
         startBackgroundMusic();
 

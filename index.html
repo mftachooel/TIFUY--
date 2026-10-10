@@ -143,7 +143,198 @@
             </div>
         </section>
 
-        <!-- Scene 5: The Little Ending -->
+        <!-- Scene 5: Agit's Journal -->
+        <section id="scene-journal" class="scene journal-scene">
+            <div class="scene-content journal-content">
+                <div class="journal-sheet">
+                    <div class="journal-home" id="journal-home">
+                        <header class="journal-cover">
+                            <p class="journal-eyebrow">A little book of thoughts</p>
+                            <h2>JOURNAL <strong>AGIT</strong> 🐲 HEHE</h2>
+                            <p>Choose a little page to peek into.</p>
+                        </header>
+
+                        <section class="journal-part" aria-labelledby="journal-about-title">
+                            <div class="journal-part-heading">
+                                <p class="journal-eyebrow">Little things about me</p>
+                                <h3 id="journal-about-title">A few pages about yours truly</h3>
+                            </div>
+                            <nav class="journal-bubbles" aria-label="Little things about me">
+                                <button class="journal-bubble" type="button" data-journal-target="who-am-i">Who am I?</button>
+                                <button class="journal-bubble" type="button" data-journal-target="likes-hates">Things I Like and Hate</button>
+                                <button class="journal-bubble" type="button" data-journal-target="habits">Little Habits of Mine</button>
+                                <button class="journal-bubble" type="button" data-journal-target="happy-things">Things That Make Me Happy</button>
+                                <button class="journal-bubble" type="button" data-journal-target="random-facts">RandoOooommm Facts About Me</button>
+                                <button class="journal-bubble" type="button" data-journal-target="favorite-food">Favorite Food</button>
+                                <button class="journal-bubble" type="button" data-journal-target="favorite-drink">Favorite Drink</button>
+                            </nav>
+                        </section>
+
+                        <section class="journal-part playlist-part" aria-labelledby="journal-playlist-title">
+                            <div class="journal-part-heading">
+                                <p class="journal-eyebrow">Songs I keep close</p>
+                                <h3 id="journal-playlist-title">A little soundtrack</h3>
+                            </div>
+                            <nav class="journal-bubbles" aria-label="Playlist">
+                                <button class="journal-bubble journal-bubble-playlist" type="button" data-journal-target="my-playlist">My Playlist</button>
+                            </nav>
+                        </section>
+                    </div>
+
+                    <article class="journal-page" data-journal-page="who-am-i" aria-labelledby="who-am-i-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">Little things about me</p>
+                            <h3 id="who-am-i-title">Who am I?</h3>
+                        </header>
+                        <dl class="journal-facts">
+                            <div><dt>Name</dt><dd>Latifah</dd></div>
+                            <div><dt>My nicknames</dt><dd>Latifah, Ifah, Lia, Tifah, Tifuy 🙄</dd></div>
+                            <div><dt>Place and date of birth</dt><dd>Jakarta, 17 November 2008</dd></div>
+                        </dl>
+                    </article>
+
+                    <article class="journal-page" data-journal-page="likes-hates" aria-labelledby="likes-hates-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">Things I Like and Hate</p>
+                            <h3 id="likes-hates-title">The likes & the nope list</h3>
+                        </header>
+                        <div class="journal-two-column">
+                            <section class="journal-list-card likes-card">
+                                <h4>I likeeeeee</h4>
+                                <ul class="journal-chip-list">
+                                    <li>Jalan-jalan</li><li>Jajan</li><li>Makan</li><li>Listening to music</li>
+                                    <li>Photos of random things</li><li>Olahraga</li><li>Quality time</li>
+                                    <li>Something clean and tidy</li><li>Trying new things</li>
+                                    <li>People with a similar sense of humor yaya</li><li>Laughing</li>
+                                    <li>SEPAK BOLA</li><li>BASKET</li><li>ANAK KECIL ANAK BAYI</li><li>GOKART</li>
+                                </ul>
+                            </section>
+                            <section class="journal-list-card hates-card">
+                                <h4>I HATE</h4>
+                                <ul class="journal-chip-list">
+                                    <li>Orang kasar, apalagi main fisik ih apalah itu</li><li>WIFI LEMOT</li>
+                                    <li>Banyak drama</li><li>Lupa taruh barang</li><li>Ga bisa jajan</li>
+                                    <li>Orang rese</li><li>Orang ga asik</li><li>Ga bisa main</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </article>
+
+                    <article class="journal-page" data-journal-page="habits" aria-labelledby="habits-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">Little Habits of Mine</p>
+                            <h3 id="habits-title">My usual little things</h3>
+                        </header>
+                        <ul class="journal-chip-list journal-large-chips">
+                            <li>Basketball ofc</li><li>Masak</li><li>Tidur</li><li>Olahraga</li>
+                        </ul>
+                    </article>
+
+                    <article class="journal-page" data-journal-page="happy-things" aria-labelledby="happy-things-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">Things That Make Me Happy</p>
+                            <h3 id="happy-things-title">My happy list</h3>
+                        </header>
+                        <ul class="journal-chip-list journal-large-chips">
+                            <li>Traveling</li><li>Tidur tanpa GANGGUAN</li><li>Main ujan</li>
+                            <li>Semua hal rapi bersih</li><li>LIBUR</li><li>Quality time</li>
+                            <li>Banyak uang</li><li>Jajan & makan</li><li>Jalan-jalan malem</li>
+                        </ul>
+                    </article>
+
+                    <article class="journal-page" data-journal-page="random-facts" aria-labelledby="random-facts-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">RandoOooommm Facts About Me</p>
+                            <h3 id="random-facts-title">Random facts, hehe</h3>
+                        </header>
+                        <ul class="journal-chip-list journal-large-chips">
+                            <li>Bosenan</li><li>Dimana pun tidur</li><li>Pelupat</li>
+                            <li>Yapping (kl udh kenal)</li><li>I like to laugh at anything silly, gatau seru aja</li>
+                            <li>AKU BISA ANGKAT GALON BISA PASANG GAS GILS</li>
+                        </ul>
+                    </article>
+
+                    <article class="journal-page" data-journal-page="favorite-food" aria-labelledby="favorite-food-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">Favorite Food</p>
+                            <h3 id="favorite-food-title">Food personality</h3>
+                        </header>
+                        <ul class="journal-chip-list journal-large-chips">
+                            <li>BEBEK OFC!!!</li><li>Makanan asin</li>
+                        </ul>
+                    </article>
+
+                    <article class="journal-page" data-journal-page="favorite-drink" aria-labelledby="favorite-drink-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="journal-page-heading">
+                            <p class="journal-eyebrow">Favorite Drink</p>
+                            <h3 id="favorite-drink-title">My drink order</h3>
+                        </header>
+                        <ul class="journal-chip-list journal-large-chips">
+                            <li>KOPI</li><li>MATCHA</li>
+                        </ul>
+                    </article>
+
+                    <article class="journal-page playlist-page" data-journal-page="my-playlist" aria-labelledby="my-playlist-title" hidden>
+                        <button class="journal-back" type="button" data-journal-back>← Back to journal</button>
+                        <header class="playlist-cover">
+                            <div class="vinyl-record" aria-hidden="true"><span></span></div>
+                            <div>
+                                <p class="journal-eyebrow">Songs I keep close</p>
+                                <h3 id="my-playlist-title">Agit's soundtrack</h3>
+                                <p>35 songs for every kind of day.</p>
+                            </div>
+                            <span class="playlist-count">35 TRACKS</span>
+                        </header>
+                        <ol class="playlist-grid">
+                            <li class="playlist-track"><span class="track-number">01</span><span class="track-copy"><span class="track-title">Teh Hijau</span><span class="track-artist">Tulus</span></span></li>
+                            <li class="playlist-track"><span class="track-number">02</span><span class="track-copy"><span class="track-title">About You</span><span class="track-artist">The 1975</span></span></li>
+                            <li class="playlist-track"><span class="track-number">03</span><span class="track-copy"><span class="track-title">One Less Lonely Girl</span><span class="track-artist">Justin Bieber</span></span></li>
+                            <li class="playlist-track"><span class="track-number">04</span><span class="track-copy"><span class="track-title">What If I Call</span><span class="track-artist">Alex Crichton</span></span></li>
+                            <li class="playlist-track"><span class="track-number">05</span><span class="track-copy"><span class="track-title">I Lay My Love on You (Remix)</span><span class="track-artist">Westlife</span></span></li>
+                            <li class="playlist-track"><span class="track-number">06</span><span class="track-copy"><span class="track-title">Dive</span><span class="track-artist">Ed Sheeran</span></span></li>
+                            <li class="playlist-track"><span class="track-number">07</span><span class="track-copy"><span class="track-title">this is me trying</span><span class="track-artist">Taylor Swift</span></span></li>
+                            <li class="playlist-track"><span class="track-number">08</span><span class="track-copy"><span class="track-title">Pamit</span><span class="track-artist">Tulus</span></span></li>
+                            <li class="playlist-track"><span class="track-number">09</span><span class="track-copy"><span class="track-title">Finish Me</span><span class="track-artist">LANY</span></span></li>
+                            <li class="playlist-track"><span class="track-number">10</span><span class="track-copy"><span class="track-title">When Did You Stop Loving Me?</span><span class="track-artist">LANY</span></span></li>
+                            <li class="playlist-track"><span class="track-number">11</span><span class="track-copy"><span class="track-title">Soft</span><span class="track-artist">LANY</span></span></li>
+                            <li class="playlist-track"><span class="track-number">12</span><span class="track-copy"><span class="track-title">All Too Well (Taylor's Version)</span><span class="track-artist">Taylor Swift</span></span></li>
+                            <li class="playlist-track"><span class="track-number">13</span><span class="track-copy"><span class="track-title">august</span><span class="track-artist">Taylor Swift</span></span></li>
+                            <li class="playlist-track"><span class="track-number">14</span><span class="track-copy"><span class="track-title">my tears ricochet</span><span class="track-artist">Taylor Swift</span></span></li>
+                            <li class="playlist-track"><span class="track-number">15</span><span class="track-copy"><span class="track-title">Favorite Girl</span><span class="track-artist">Justin Bieber</span></span></li>
+                            <li class="playlist-track"><span class="track-number">16</span><span class="track-copy"><span class="track-title">Love Yourself</span><span class="track-artist">Justin Bieber</span></span></li>
+                            <li class="playlist-track"><span class="track-number">17</span><span class="track-copy"><span class="track-title">Cincin</span><span class="track-artist">Hindia</span></span></li>
+                            <li class="playlist-track"><span class="track-number">18</span><span class="track-copy"><span class="track-title">everything u are</span><span class="track-artist">Hindia</span></span></li>
+                            <li class="playlist-track"><span class="track-number">19</span><span class="track-copy"><span class="track-title">Berdansalah, Karir Ini Tak Ada Artinya</span><span class="track-artist">Hindia</span></span></li>
+                            <li class="playlist-track"><span class="track-number">20</span><span class="track-copy"><span class="track-title">Secukupnya</span><span class="track-artist">Hindia</span></span></li>
+                            <li class="playlist-track"><span class="track-number">21</span><span class="track-copy"><span class="track-title">Separuh Nafas</span><span class="track-artist">Dewa 19</span></span></li>
+                            <li class="playlist-track"><span class="track-number">22</span><span class="track-copy"><span class="track-title">Pangeran Cinta</span><span class="track-artist">Dewa 19</span></span></li>
+                            <li class="playlist-track"><span class="track-number">23</span><span class="track-copy"><span class="track-title">Satu (Remastered 2023)</span><span class="track-artist">Dewa 19</span></span></li>
+                            <li class="playlist-track"><span class="track-number">24</span><span class="track-copy"><span class="track-title">Percayalah</span><span class="track-artist">Raisa</span></span></li>
+                            <li class="playlist-track"><span class="track-number">25</span><span class="track-copy"><span class="track-title">Tujuh Belas</span><span class="track-artist">Tulus</span></span></li>
+                            <li class="playlist-track"><span class="track-number">26</span><span class="track-copy"><span class="track-title">Diri</span><span class="track-artist">Tulus</span></span></li>
+                            <li class="playlist-track"><span class="track-number">27</span><span class="track-copy"><span class="track-title">Angin Kencang</span><span class="track-artist">Noh Salleh</span></span></li>
+                            <li class="playlist-track"><span class="track-number">28</span><span class="track-copy"><span class="track-title">Alexandra</span><span class="track-artist">Hindia</span></span></li>
+                            <li class="playlist-track"><span class="track-number">29</span><span class="track-copy"><span class="track-title">Telenovia</span><span class="track-artist">Reality Club</span></span></li>
+                            <li class="playlist-track"><span class="track-number">30</span><span class="track-copy"><span class="track-title">Is It The Answer</span><span class="track-artist">Reality Club</span></span></li>
+                            <li class="playlist-track"><span class="track-number">31</span><span class="track-copy"><span class="track-title">Anaheim</span><span class="track-artist">NIKI</span></span></li>
+                            <li class="playlist-track"><span class="track-number">32</span><span class="track-copy"><span class="track-title">Stop Crying Your Heart Out</span><span class="track-artist">Oasis</span></span></li>
+                            <li class="playlist-track"><span class="track-number">33</span><span class="track-copy"><span class="track-title">Uptown Girl (Radio Edit)</span><span class="track-artist">Westlife</span></span></li>
+                            <li class="playlist-track"><span class="track-number">34</span><span class="track-copy"><span class="track-title">You're Beautiful</span><span class="track-artist">James Blunt</span></span></li>
+                            <li class="playlist-track"><span class="track-number">35</span><span class="track-copy"><span class="track-title">A Sorrowful Reunion</span><span class="track-artist">Reality Club</span></span></li>
+                        </ol>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 6: The Little Ending -->
         <section id="scene-ending" class="scene">
             <div class="scene-content center-content ending-text">
                 <h1 class="elegant-title final-name">Latifuy Aulia Zalianty</h1>
