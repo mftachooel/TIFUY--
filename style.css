@@ -128,6 +128,41 @@ main.hidden {
     display: none;
 }
 
+.occasion-status {
+    position: fixed;
+    z-index: 30;
+    top: clamp(1rem, 3vw, 2rem);
+    left: clamp(1rem, 4vw, 3.5rem);
+    right: clamp(1rem, 4vw, 3.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    pointer-events: none;
+}
+
+.birthday-status,
+.weather-status {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    padding: .65rem .9rem;
+    border: 1px solid rgba(255, 249, 214, .2);
+    border-radius: 999px;
+    background: rgba(26, 36, 21, .32);
+    box-shadow: 0 8px 24px rgba(10, 20, 10, .12);
+    backdrop-filter: blur(10px);
+}
+
+.birthday-status { flex-wrap: wrap; column-gap: .75rem; }
+.weather-status { text-align: right; }
+.weather-icon { color: var(--color-gold); font-size: 1.35rem; line-height: 1; }
+.weather-copy { display: grid; gap: .08rem; }
+.status-kicker { color: rgba(255, 249, 214, .66); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
+.birthday-status strong, .weather-status strong { color: var(--color-cream); font: 500 .87rem var(--font-secondary); letter-spacing: .03em; }
+.birthday-status strong { color: var(--color-gold); font-family: var(--font-primary); font-size: 1.25rem; }
+.status-date { color: rgba(255, 249, 214, .76); font-size: .7rem; }
+
 .background-music {
     position: fixed;
     top: 0;
@@ -1075,6 +1110,13 @@ p {
 }
 
 @media (max-width: 680px) {
+    .occasion-status { align-items: stretch; }
+    .birthday-status, .weather-status { padding: .55rem .7rem; }
+    .status-date { display: none; }
+    .status-kicker { font-size: .52rem; }
+    .birthday-status strong, .weather-status strong { font-size: .75rem; }
+    .birthday-status strong { font-size: 1.05rem; }
+    .weather-icon { font-size: 1.1rem; }
     .journal-scene { padding: 5vh 1rem; }
     .journal-sheet { padding: 1.25rem; }
     .journal-bubbles { grid-template-columns: repeat(2, minmax(0, 1fr)); }

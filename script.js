@@ -5,6 +5,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicContainer = document.getElementById('background-music');
     let musicStarted = false;
 
+    function initBirthdayStatus() {
+        const countdown = document.getElementById('birthday-countdown');
+        const locationLabel = document.getElementById('weather-location');
+        const weatherLabel = document.getElementById('weather-label');
+        const weatherIcon = document.getElementById('weather-icon');
+        if (!countdown || !locationLabel) return;
+
+        const birthdayMonth = 10;
+        const birthdayDay = 17;
+
+        function updateCountdown() {
+            const now = new Date();
+            let birthday = new Date(now.getFullYear(), birthdayMonth, birthdayDay);
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            if (birthday < today) birthday = new Date(now.getFullYear() + 1, birthdayMonth, birthdayDay);
+            const daysLeft = Math.ceil((birthday - now) / 86400000);
+            countdown.textContent = daysLeft === 0 ? 'TODAY ✦' : `H-${daysLeft}`;
+        }
+
+        const weatherNames = {
+            0: ['clear skies', '☼'], 1: ['mostly clear', '◒'], 2: ['partly cloudy', '◐'],
+            3: ['cloudy', '☁'], 45: ['misty', '≋'], 48: ['misty', '≋'],
+            51: ['light drizzle', '☂'], 53: ['drizzle', '☂'], 55: ['drizzle', '☂'],
+            61: ['light rain', '☂'], 63: ['rainy', '☂'], 65: ['rainy', '☂'],
+            80: ['showers', '☂'], 81: ['showers', '☂'], 82: ['showers', '☂'],
+            95: ['thunderstorm', 'ϟ'], 96: ['thunderstorm', 'ϟ'], 99: ['thunderstorm', 'ϟ']
+        };
+
+        async function loadWeather(latitude, longitude, fallbackCity = 'Karanganyar') {
+            try {
+                const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&timezone=auto`);
+                if (!weatherResponse.ok) throw new Error('Weather unavailable');
+                const weather = await weatherResponse.json();
+                const [description, icon] = weatherNames[weather.current.weather_code] || ['today outside', '☼'];
+                let city = fallbackCity;
+                try {
+                    const placeResponse = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`);
+                    const place = await placeResponse.json();
+                    city = place.city || place.locality || place.principalSubdivision || fallbackCity;
+                } catch (error) {
+                    // Keep the nearest known city if reverse geocoding is unavailable.
+                }
+                locationLabel.textContent = `${city} · ${Math.round(weather.current.temperature_2m)}°C`;
+                weatherLabel.textContent = description;
+                if (weatherIcon) weatherIcon.textContent = icon;
+            } catch (error) {
+                locationLabel.textContent = `${fallbackCity} · —°C`;
+                weatherLabel.textContent = 'weather is shy today';
+            }
+        }
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 60000);
+        loadWeather(-7.591, 110.951);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                ({ coords }) => loadWeather(coords.latitude, coords.longitude),
+                () => {},
+                { enableHighAccuracy: false, timeout: 7000, maximumAge: 600000 }
+            );
+        }
+    }
+
+    initBirthdayStatus();
+
     function startBackgroundMusic() {
         if (musicStarted || !musicContainer) return;
         musicStarted = true;
