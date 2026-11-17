@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         player.title = 'Background music';
         player.width = '200';
         player.height = '200';
-        player.src = 'https://www.youtube.com/embed/hEFAeAPLbfk?autoplay=1&controls=0&loop=1&playlist=hEFAeAPLbfk&playsinline=1';
+        player.src = 'https://www.youtube.com/watch?v=uGxaFiHD7PI&list=RDuGxaFiHD7PI&start_radio=1&autoplay=1&loop=1&mute=1';
         player.allow = 'autoplay; encrypted-media';
         player.referrerPolicy = 'strict-origin-when-cross-origin';
         musicContainer.appendChild(player);
