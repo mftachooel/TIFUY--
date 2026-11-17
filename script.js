@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const birthdayPasswordInput = document.getElementById('birthday-password-input');
     const birthdayPasswordVisibility = document.getElementById('birthday-password-visibility');
     const birthdayPasswordError = document.getElementById('birthday-password-error');
-    const musicContainer = document.getElementById('background-music');
-    let musicStarted = false;
 
     function openBirthdayPassword() {
         birthdayPassword.hidden = false;
@@ -126,20 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initBirthdayStatus();
 
-    function startBackgroundMusic() {
-        if (musicStarted || !musicContainer) return;
-        musicStarted = true;
-
-        const player = document.createElement('iframe');
-        player.title = 'Background music';
-        player.width = '200';
-        player.height = '200';
-        player.src = 'https://www.youtube.com/embed/uGxaFiHD7PI?autoplay=1&controls=0&loop=1&playlist=uGxaFiHD7PI&playsinline=1';
-        player.allow = 'autoplay; encrypted-media';
-        player.referrerPolicy = 'strict-origin-when-cross-origin';
-        musicContainer.appendChild(player);
-    }
-
     const journalSheet = document.querySelector('.journal-sheet');
     if (journalSheet) {
         const journalHome = journalSheet.querySelector('#journal-home');
@@ -193,8 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     startButton.addEventListener('click', (e) => {
-        startBackgroundMusic();
-
         const ripple = document.createElement('div');
         ripple.style.position = 'absolute';
         ripple.style.left = `${e.clientX}px`;

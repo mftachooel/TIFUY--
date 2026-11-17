@@ -162,16 +162,6 @@ main.hidden {
 .birthday-status strong { color: var(--color-gold); font-family: var(--font-primary); font-size: 1.25rem; }
 .status-date { color: rgba(255, 249, 214, .76); font-size: .7rem; }
 
-.background-music {
-    position: fixed;
-    top: 0;
-    left: -210px;
-    width: 200px;
-    height: 200px;
-    opacity: 0.01;
-    pointer-events: none;
-}
-
 .scene {
     position: relative;
     min-height: 100vh;
