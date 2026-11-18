@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
     const openingScreen = document.getElementById('opening-screen');
     const mainContent = document.getElementById('main-content');
+    const birthdayToast = document.getElementById('birthday-toast');
+    const birthdayToastTrigger = document.getElementById('birthday-toast-trigger');
+    const birthdayToastMessage = document.getElementById('birthday-toast-message');
+    const birthdayPassword = document.getElementById('birthday-password');
+    const birthdayPasswordClose = document.getElementById('birthday-password-close');
+    const birthdayPasswordForm = document.getElementById('birthday-password-form');
+    const birthdayPasswordInput = document.getElementById('birthday-password-input');
+    const birthdayPasswordVisibility = document.getElementById('birthday-password-visibility');
+    const birthdayPasswordError = document.getElementById('birthday-password-error');
     const musicContainer = document.getElementById('background-music');
     let musicStarted = false;
 
@@ -17,6 +26,53 @@ document.addEventListener('DOMContentLoaded', () => {
         player.referrerPolicy = 'strict-origin-when-cross-origin';
         musicContainer.appendChild(player);
     }
+
+    function openBirthdayPassword() {
+        birthdayPassword.hidden = false;
+        requestAnimationFrame(() => {
+            birthdayPassword.classList.add('is-visible');
+            birthdayPasswordInput?.focus();
+        });
+    }
+
+    function closeBirthdayPassword() {
+        birthdayPassword.classList.remove('is-visible');
+        window.setTimeout(() => { birthdayPassword.hidden = true; }, 350);
+    }
+
+    birthdayToastTrigger?.addEventListener('click', () => {
+        if (birthdayToast.classList.contains('is-expanded')) {
+            birthdayToastTrigger.setAttribute('aria-expanded', 'false');
+            birthdayToastMessage.hidden = true;
+            birthdayToast.classList.remove('is-expanded');
+            return;
+        }
+        openBirthdayPassword();
+    });
+    birthdayPasswordClose?.addEventListener('click', closeBirthdayPassword);
+    birthdayPassword?.addEventListener('click', (event) => {
+        if (event.target === birthdayPassword) closeBirthdayPassword();
+    });
+    birthdayPasswordVisibility?.addEventListener('change', () => {
+        birthdayPasswordInput.type = birthdayPasswordVisibility.checked ? 'text' : 'password';
+    });
+    birthdayPasswordForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (birthdayPasswordInput.value.trim() !== 'aku ngaku aku cengeng') {
+            birthdayPasswordError.textContent = 'Password-nya belum tepat, coba lagi ✦';
+            birthdayPassword.querySelector('.birthday-password-card').classList.add('is-wrong');
+            birthdayPasswordInput.focus();
+            window.setTimeout(() => birthdayPassword.querySelector('.birthday-password-card').classList.remove('is-wrong'), 350);
+            return;
+        }
+        birthdayPasswordError.textContent = '';
+        closeBirthdayPassword();
+        window.setTimeout(() => {
+            birthdayToastTrigger.setAttribute('aria-expanded', 'true');
+            birthdayToastMessage.hidden = false;
+            birthdayToast.classList.add('is-expanded');
+        }, 360);
+    });
 
     function initBirthdayStatus() {
         const countdown = document.getElementById('birthday-countdown');
@@ -167,6 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             mainContent.style.transition = 'opacity 2s ease-in-out';
             mainContent.style.opacity = '1';
+
+            if (birthdayToast) {
+                window.setTimeout(() => birthdayToast.classList.add('is-visible'), 1800);
+            }
 
             initFireflies();
         }, 1500);

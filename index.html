@@ -41,6 +41,46 @@
             </div>
         </aside>
 
+        <section class="birthday-toast" id="birthday-toast" aria-label="Birthday notification">
+            <button class="birthday-toast-trigger" id="birthday-toast-trigger" type="button" aria-expanded="false" aria-controls="birthday-toast-message">
+                <span class="birthday-toast-icon" aria-hidden="true">✦</span>
+                <span class="birthday-toast-copy">
+                    <strong>notification</strong>
+                    <span>Sweet Eighteen cantik!</span>
+                </span>
+                <span class="birthday-toast-arrow" aria-hidden="true">↗</span>
+            </button>
+            <div class="birthday-toast-message" id="birthday-toast-message" hidden>
+                <p><strong>Sweet Eighteen cantik!</strong>, gatau kenapa kita bisa sedekat ini, kalo mau tau aku baru pertama kali bisa sedeket ini sama wanita kuat tapi cengeng kayak kamu, kalo bingung kenapa aku bilang pertama kali, padahal aku pernah pacaran sampe punya mantan?, jujur dulu ga sedeket itu sampe kek gini, akh!, lupakan ‘mantan itu’, jadi jangan kaget kalo aku suka bingung buat nanggepin omelan-omelan mu itu, paling ya ‘oowww’, ‘yapp’, ‘walahh’, dan semacamnya.</p>
+                <p>Nganggep kamu tu lebih dari temen, terus apa??, apakek, aku tu suka sama kamu dari cara kamu cerita, ngomel, marah-marah, ngasi saran, pokoknya semuanya lah. Nah kalo kamu ada apa-apa, udah bilang aja, terserah apa aja, kamu mau bilang abis nangis, abis ngapain-ngapain, bebasss, aku bakalan terima.</p>
+                <p>Jangan ngira ketika chat bakalan ngganggu, nggaak sama sekaliii!!, malah seneng aku dengerin/bacain ocehan+omelan mu itu, dan ketika kamu ngerasa ada kelakuan ku yang kamu ga suka bilang aja gausa malu, gausa takut nyinggung, salah bilang, marahin aja kalo mau.</p>
+                <p>Berhubung kita tu sama2 di boarding jadi ga setiap waktu kamu bisa kontak aku, itu pun sebaliknya.</p>
+                <p>Kalo kamu tau aku pulang dan kamu juga, kamu tu bole banget mau ngechat aku, spam chat kalo ga bales, sekalipun telpon boleh banget atau tiba2 telpon tanpa chat dlu juga boleeee, apalagi ada apa-apa kalo gada juga gapapa.</p>
+                <p>Ketika kamu masuk kuliah nanti dan aku kelas 12, kamu bole banget ganggu hari2 ku di kelas 12 nanti, kenapa? Soalnya aku uda ga sekolah lagi alias PKL, jadi kapan pun itu aku bisa baless, -uda hidup sendiri</p>
+                <p>Maaf kalo mungkin ini terlalu berlebihan dan aku juga minta maaf kalo cuma bisa kasi ini, coba aja kalo kita deket aku bakalan ke rumah mu pura2 minjem baskom trus kasi hadiah dehhh, dan minta maaf juga kalo aku banyak salahhh…..selamat berprosess wanita kuat (tapi cengeng)</p>
+                <span class="birthday-toast-signoff">al ell dull</span>
+            </div>
+        </section>
+
+        <section class="birthday-password" id="birthday-password" hidden role="dialog" aria-modal="true" aria-labelledby="birthday-password-title">
+            <div class="birthday-password-card">
+                <button class="birthday-password-close" id="birthday-password-close" type="button" aria-label="Close password prompt">×</button>
+                <span class="birthday-password-star" aria-hidden="true">✦</span>
+                <p class="birthday-password-kicker">a private little note</p>
+                <h2 id="birthday-password-title">A secret password<br><em>first.</em></h2>
+                <p class="birthday-password-copy">Only someone special knows the way in. Enter the password to read this little message.</p>
+                <form id="birthday-password-form">
+                    <label class="sr-only" for="birthday-password-input">Birthday password</label>
+                    <div class="birthday-password-input-wrap">
+                        <input id="birthday-password-input" type="password" placeholder="type the secret password" autocomplete="off" required>
+                        <label class="birthday-password-show"><input id="birthday-password-visibility" type="checkbox"><span>show</span></label>
+                    </div>
+                    <button class="birthday-password-submit" type="submit">Unlock the note <span>✦</span></button>
+                </form>
+                <p class="birthday-password-error" id="birthday-password-error" role="alert" aria-live="polite"></p>
+            </div>
+        </section>
+
         <!-- Global God Rays Overlay (stays fixed or moves slightly) -->
         <div class="god-rays"></div>
         <!-- Global Fireflies Overlay -->
