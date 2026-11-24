@@ -12,19 +12,89 @@ document.addEventListener('DOMContentLoaded', () => {
     const birthdayPasswordVisibility = document.getElementById('birthday-password-visibility');
     const birthdayPasswordError = document.getElementById('birthday-password-error');
     const musicContainer = document.getElementById('background-music');
-    let musicStarted = false;
+    const myPartnerTrigger = document.getElementById('my-partner-trigger');
+    const myPartnerPanel = document.getElementById('my-partner-panel');
+    const myPartnerClose = document.getElementById('my-partner-close');
+    const partnerMusicId = 'LOHq__E4GOY';
+    const mainMusicId = 'uGxaFiHD7PI';
+    let activeMusicId = null;
+    let partnerEffectsReady = false;
 
-    function startBackgroundMusic() {
-        if (musicStarted || !musicContainer) return;
-        musicStarted = true;
+    function setBackgroundMusic(videoId) {
+        if (!musicContainer || activeMusicId === videoId) return;
+        activeMusicId = videoId;
+        musicContainer.replaceChildren();
         const player = document.createElement('iframe');
-        player.title = 'Background music';
+        player.title = videoId === partnerMusicId ? 'Music for my partner' : 'Background music';
         player.width = '1';
         player.height = '1';
-        player.src = 'https://www.youtube.com/embed/uGxaFiHD7PI?autoplay=1&controls=0&loop=1&playlist=uGxaFiHD7PI&playsinline=1';
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`; 
         player.allow = 'autoplay; encrypted-media';
         player.referrerPolicy = 'strict-origin-when-cross-origin';
         musicContainer.appendChild(player);
+    }
+
+    function initPartnerEffects() {
+        if (partnerEffectsReady || !myPartnerPanel) return;
+        partnerEffectsReady = true;
+        const shell = myPartnerPanel.querySelector('.partner-page-shell');
+        const glow = myPartnerPanel.querySelector('.partner-cursor-glow');
+        shell?.addEventListener('pointermove', (event) => {
+            if (event.pointerType === 'touch') return;
+            glow?.style.setProperty('--cursor-x', `${event.clientX}px`);
+            glow?.style.setProperty('--cursor-y', `${event.clientY}px`);
+            if (Math.random() > 0.65) {
+                const dot = document.createElement('span');
+                dot.className = 'partner-cursor-trail';
+                dot.style.left = `${event.clientX}px`;
+                dot.style.top = `${event.clientY}px`;
+                shell.appendChild(dot);
+                window.setTimeout(() => dot.remove(), 700);
+            }
+        });
+    }
+
+    function openMyPartner() {
+        if (!myPartnerPanel || !myPartnerTrigger) return;
+        myPartnerPanel.hidden = false;
+        document.body.classList.add('partner-page-open');
+        myPartnerTrigger.setAttribute('aria-expanded', 'true');
+        myPartnerPanel.classList.add('is-visible');
+        myPartnerPanel.classList.remove('is-leaving');
+        myPartnerPanel.classList.add('is-entering');
+        initPartnerEffects();
+        setBackgroundMusic(partnerMusicId);
+        window.setTimeout(() => myPartnerPanel.classList.remove('is-entering'), 1100);
+        requestAnimationFrame(() => {
+            myPartnerClose?.focus();
+        });
+    }
+
+    function closeMyPartner() {
+        if (!myPartnerPanel || !myPartnerTrigger) return;
+        myPartnerPanel.classList.remove('is-visible');
+        myPartnerPanel.classList.add('is-leaving');
+        document.body.classList.remove('partner-page-open');
+        myPartnerTrigger.setAttribute('aria-expanded', 'false');
+        window.setTimeout(() => {
+            myPartnerPanel.hidden = true;
+            myPartnerPanel.classList.remove('is-leaving');
+            setBackgroundMusic(mainMusicId);
+        }, 350);
+        myPartnerTrigger.focus();
+    }
+
+    myPartnerTrigger?.addEventListener('click', openMyPartner);
+    myPartnerClose?.addEventListener('click', closeMyPartner);
+    myPartnerPanel?.addEventListener('click', (event) => {
+        if (event.target === myPartnerPanel) closeMyPartner();
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && myPartnerPanel?.classList.contains('is-visible')) closeMyPartner();
+    });
+
+    function startBackgroundMusic() {
+        setBackgroundMusic(mainMusicId);
     }
 
     function openBirthdayPassword() {
